@@ -234,3 +234,25 @@
     --ion-card-background: #1e1e1e;
   }
 }
+
+
+@font-face {
+  font-family: 'URW DIN Normal';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/regular.otf');
+}
+
+@font-face {
+  font-family: 'URW DIN Bolder';
+  font-style: normal;
+  font-weight:bolder;
+  src: url('../assets/fonts/bold.otf');
+}
+
+@font-face {
+  font-family: 'URW DIN Bold';
+  font-style:normal;
+  font-weight: bold;
+  src: url('../assets/fonts/regular.otf');
+}

@@ -1,17 +1,178 @@
-<ion-header [translucent]="true">
+<ion-header style="background-color: #171b23">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-searchbar
+      placeholder="Coin Ara"
+      style="
+        padding-inline-start: 3.75rem;
+        padding-inline-end: 6.25rem;
+        margin-top: 0.31rem;
+      "
+    ></ion-searchbar>
+    <ion-icon
+      name="person-circle-outline"
+      style="
+        padding-inline-start: 0.75rem;
+        padding-top: 0.31rem;
+        color: #777777;
+      "
+    ></ion-icon>
+    <ion-icon
+      name="scan-outline"
+      style="margin-left: 17.3rem; padding-top: 0.31rem"
+    ></ion-icon>
+
+    <ion-icon
+      name="notifications-outline"
+      style="margin-left: 0.62rem; padding-top: 0.31rem"
+    ></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-header collapse="condense"> </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card (click)="news()">
+    <swiper #swiper [config]="config">
+      <ng-template swiperSlide *ngFor="let image of topslideimage">
+        <ion-img [src]="image"></ion-img>
+      </ng-template>
+    </swiper>
+  </ion-card>
+
+  <div class="container">
+    <div class="container2">
+      <div
+        id="yazi"
+        class="scrolling-text"
+        [@scroll]="state"
+        (@scroll.done)="scrollDone()"
+        *ngFor="let text of scrollingtext"
+        [routerLink]="['/news',text.habericerik,text.img]"
+        routerLinkActive="router-link-active"
+      >
+        {{text.habericerik}}
+      </div>
+      <img
+        class="ion-icon2"
+        src="https://assets.staticimg.com/kucoin_m/0.6.5/static/horn.9ad3ce14.svg"
+        alt=""
+      />
+      <ion-icon class="ion-icon3" name="chevron-forward-outline"> </ion-icon>
+    </div>
+
+    <div class="container3">
+      <swiper #swiper1 [config]="config1">
+        <ng-template swiperSlide *ngFor="let coin of cointext">
+          <ion-text style="color: rgb(100, 100, 100); font-size: x-small">
+            {{coin.coinname}}
+            <span style="color: #19b090; font-size: x-small"
+              >{{coin.percent }}</span
+            >
+          </ion-text>
+          <ion-text style="color: rgb(240, 240, 240); font-size: large"
+            >{{coin.rating}}</ion-text
+          >
+          <ion-text style="color: rgb(100, 100, 100); font-size: medium"
+            >{{coin.rating2}}</ion-text
+          >
+        </ng-template>
+      </swiper>
+    </div>
+
+    <div
+      style="
+        padding-inline-start: 1rem;
+        padding-inline-end: 1rem;
+        margin-top: 0.5rem;
+      "
+    >
+      <img
+        style="width: 100%; height: auto"
+        src="../../assets/homepageimg.png"
+      />
+    </div>
+
+    <div class="container4" *ngFor="let c4content of c4contents">
+      <div class="container4content">
+        <img style="display: inline-block" src="{{c4content.img}}" alt="" />
+        <br />
+        {{c4content.title}}
+      </div>
+    </div>
+  </div>
+
+  <div class="container6">
+    <ion-button (click)="slidePrev()" fill="clear" shape="round" color="medium">
+      Yükselenler
+      <ion-icon
+        class="ion-icon4"
+        name="arrow-up-outline"
+        color="success"
+      ></ion-icon>
+    </ion-button>
+
+    <ion-button (click)="slideNext()" fill="clear" shape="round" color="medium">
+      Düşenler
+      <ion-icon
+        class="ion-icon4"
+        name="arrow-down-outline"
+        color="danger"
+      ></ion-icon>
+    </ion-button>
+  </div>
+
+  <div class="container5">
+    <swiper #swiper2 [config]="config2">
+      <ng-template swiperSlide class="swiper-slide2">
+        <ion-grid size="12">
+          <ion-row *ngFor="let u of up">
+            <ion-col size="5">
+              <div>
+                {{u.id}}
+                <span style="color: rgb(100, 100, 100); font-size: x-small"
+                  >/{{u.id2}}</span
+                >
+              </div>
+            </ion-col>
+
+            <ion-col size="4" class="ion-col2">
+              <div>
+                {{u.price}}<br />
+                <span class="gridspan">${{u.price$}}</span>
+              </div>
+            </ion-col>
+
+            <ion-col size="3">
+              <div class="ion-col3">{{u.change}}</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-template>
+
+      <ng-template swiperSlide class="swiper-slide2">
+        <ion-grid>
+          <ion-row *ngFor="let d of down">
+            <ion-col size="5">
+              <div>
+                {{d.id}}
+                <span style="color: rgb(100, 100, 100); font-size: x-small"
+                  >/{{d.id2}}</span
+                >
+              </div>
+            </ion-col>
+
+            <ion-col size="4" class="ion-col2">
+              <div>
+                {{d.price}}<br /><span class="gridspan">${{d.price$}}</span>
+              </div>
+            </ion-col>
+
+            <ion-col size="3">
+              <div class="ion-col4">{{d.change}}</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-template>
+    </swiper>
+  </div>
 </ion-content>

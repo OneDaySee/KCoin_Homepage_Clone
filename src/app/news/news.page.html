@@ -1,0 +1,31 @@
+<ion-header >
+  <ion-toolbar color="#171b23" >
+    <ion-buttons slot="start">
+      <ion-back-button text="Geri" color="medium"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Haberler</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"  >
+  <ion-card  href="https://www.kucoin.com/news/tr-get-4-10-usdt-free-on-your-p2p-trade-get-2-usdt-more-by-referring-anybody">
+    <ion-card>
+      <ion-img  src="{{img1}}"></ion-img>
+    </ion-card>
+    <ion-text color="primary">
+      <h6 style="padding: 17px; font-size: 15px; text-align: center; color: azure;" >{{text1}}</h6>
+    </ion-text>
+  </ion-card>
+
+
+<ion-card *ngFor="let card of cardtextimg" href="https://www.kucoin.com/news/tr-get-4-10-usdt-free-on-your-p2p-trade-get-2-usdt-more-by-referring-anybody">
+  <ion-card >
+    <ion-img src="{{card.img}}"></ion-img>
+  </ion-card>
+  <ion-text color="primary" >
+    <h6  style="padding: 17px; font-size: 15px; text-align: center; color: azure;">{{card.habericerik}}</h6>
+  </ion-text>
+</ion-card>
+
+
+</ion-content>
