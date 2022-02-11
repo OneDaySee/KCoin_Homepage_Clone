@@ -1,4 +1,4 @@
 # KCoin_Homepage_Clone
+KCoin_Homepage_Clone Youtube-Video
 
-<a href="https://youtu.be/jsmU4wcOmb4" target="_blank"><img src="http://img.youtube.com/vi/jsmU4wcOmb4/0.jpg" 
-alt="KCoin_Homepage_Clone" width="240" height="180" border="10" /></a>
+[![KCoin_Homepage_Clone](http://img.youtube.com/vi/jsmU4wcOmb4/0.jpg)](http://www.youtube.com/watch?v=jsmU4wcOmb4)
